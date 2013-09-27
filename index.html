@@ -17,7 +17,7 @@
         <link rel="stylesheet" href="css/style.css">
 
         <link href='http://fonts.googleapis.com/css?family=Happy+Monkey' rel='stylesheet' type='text/css'>
-        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+         <!-- <script src="js/vendor/modernizr-2.6.2.min.js"></script> -->
         <script src="js/main.js"></script>
     </head>
 
@@ -25,19 +25,19 @@
         <div class="container">
             <h1>Tic Tac Toe</h1>
 
-            <div id="box1" onClick="buttonClick()" class="box top_row col1">1</div>
-            <div id="box2" class="box top_row col2">2</div>
-            <div id="box3" class="box top_row col3">3</div>
+            <div id="box1" class="box top_row col1" onClick="playGame()"></div>
+            <div id="box2" class="box top_row col2" onClick="playGame()"></div>
+            <div id="box3" class="box top_row col3" onClick="playGame()"></div>
             <div class="clear"></div>
 
-            <div id="box4" class="box mid_row col1">4</div>
-            <div id="box5" class="box mid_row col2">5</div>
-            <div id="box6" class="box mid_row col3">6</div>
+            <div id="box4" class="box mid_row col1" onClick="playGame()"></div>
+            <div id="box5" class="box mid_row col2" onClick="playGame()"></div>
+            <div id="box6" class="box mid_row col3" onClick="playGame()"></div>
             <div class="clear"></div>
 
-            <div id="box7" class="box bottom_row col1">7</div>
-            <div id="box8" class="box bottom_row col2">8</div>
-            <div id="box9" class="box bottom_row col3">9</div>
+            <div id="box7" class="box bottom_row col1" onClick="playGame()"></div>
+            <div id="box8" class="box bottom_row col2" onClick="playGame()"></div>
+            <div id="box9" class="box bottom_row col3" onClick="playGame()"></div>
             <div class="clear"></div>
 
             <input type="button" id="btn" value="Play Now!" onClick="buttonClick()">
