@@ -3,6 +3,7 @@ var gameBoard = ['','','','','','','','',''];
 
 var turn = 'X';
 
+var gameEnded = gameEnded || false;
 
 function playGame() {
 	var box = event.target.id; 
@@ -23,7 +24,9 @@ function playGame() {
 		alert("Pick another box!" + ind);
 	}
 	// insert function to check win conditions
-	winCondition();
+	winCondition(); 
+	tieCondition();
+	
 }
 
 
@@ -32,7 +35,7 @@ function fillArray(player) {
 	var ind = box.substring(3) - 1;
 	gameBoard[ind] = player;
 	gameBoard[ind] = fillArray.length;
-	// this is not populating the arrays with "X" or "O" to tell who is winning
+	// this is populating the arrays with "X" or "O" to tell who is winning
 	console.log(gameBoard[ind] = player)
 }
 
@@ -53,33 +56,45 @@ function winCondition(){
 		if ((gameBoard[wins[i][0]] != "") && (gameBoard[wins[i][0]] == gameBoard[wins[i][1]]) && (gameBoard[wins[i][1]] == gameBoard[wins[i][2]]))
 		{
 			alert(gameBoard[wins[i][0]] + " win! by " + wins[i][3]);
-
+			gameEnded = true;	
 		} 
-
-		// } else {
-		// 	alert("its a tie!");
-		// }
-
 	}
 }
 
+// Tie condition - if gameBoard is not empty and the gameBoard is does not = win conditions then alert it a tie
+function tieCondition(){
+	 gameEnded = true;
 
+	for(var i = 0; i < gameBoard.length; i++)
+		if (gameBoard[i]=="")
+		{
+			gameEnded = false;
+			break;
+		}
 
-
-
+		if (gameEnded)
+		{
+			alert("it's a tie!");
+			gameEnded = true;
+		}
+}		
+	
 
 
 function buttonClick(){
 	alert( "my button was clicked!");
+	document.getElementById("btn")
 	
-	// this is what i want the button to do
-	// 	if there is nothing in the game board 
-	// 		btn innerHTML should be ("play game!");
-	// 	else
-	// 		gameBoard array should be cleared 
-	// 		gameBoard[ind] = (array.length == "")
-	// 		btn innerHTML should be ("restart game!")
-	
+	// clear gameBoard() and reset fillArray() when the buttonClick is click
+
+	// 	if gameBoard Array is not empty 
+			// btn value ("reset game")
+			// clear array
+			// gameEnded = false
+	// 	else 
+	// 		// btn value ("reset game")
+			// clear array
+			// gameEnded = false
 }
 
 function pageLoaded(){
