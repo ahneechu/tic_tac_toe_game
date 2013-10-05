@@ -21,13 +21,13 @@
         <script src="js/main.js"></script>
     </head>
 
-    <body onload="navCells();">
+    <body>
 
         <div id="wrapper">
             <h1>Tic Tac Toe</h1>
 
             <input type = "button" id="startBtn" class="btn" value="Start Game!" onClick="hidePopup()" />
-            <input type = "button" id="winMsg" class="btn" value="Play again?" onClick="resetClick()" />
+            <input type = "button" id="winMsg" class="btn" value="Play again?" onClick="resetClick(); playAgain()" />
 
             <div id="gameBoard" class="clearfix" onClick="hidePopup()">
         

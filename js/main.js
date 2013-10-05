@@ -60,7 +60,7 @@ function winCondition(){
 	for (var i = 0; i < wins.length; i++){
 		if ((gameBoard[wins[i][0]] != "") && (gameBoard[wins[i][0]] == gameBoard[wins[i][1]]) && (gameBoard[wins[i][1]] == gameBoard[wins[i][2]]))
 		{
-			document.getElementById("winMsg").value=(gameBoard[wins[i][0]] + ' win! by ' + wins[i][3]);
+			document.getElementById("winMsg").value=(gameBoard[wins[i][0]] + ' wins! by ' + wins[i][3] + ' Play again?');
 			document.getElementById("winMsg").style.display="block";
 			// alert(gameBoard[wins[i][0]] + " win! by " + wins[i][3]);
 			// gameEnded function doesnt work
@@ -84,7 +84,7 @@ function tieCondition(){
 
 		if (gameEnded)
 		{
-			document.getElementById("winMsg").value=("It's a tie!");
+			document.getElementById("winMsg").value=("It's a tie! "+ "Play again?");
 			document.getElementById("winMsg").style.display="block";
 			// alert("it's a tie!");
 			gameEnded = true;
@@ -105,8 +105,15 @@ function resetClick(){
 		box[i].innerHTML = '';	
 	}
 	gameBoard = ['','','','','','','','',''];
+	gameEnded = false;
+	turn='X';
 	console.log(gameBoard);
 	// alert( "my button was clicked!");
+}
+
+
+function playAgain(){
+	document.getElementById("winMsg").style.display="none";	
 }
 
 
