@@ -3,11 +3,15 @@ var gameBoard = ['','','','','','','','',''];
 
 var turn = 'X';
 
-var gameEnded = gameEnded || false;
+var gameEnded = gameEnded | false;
 
 function playGame() {
 	var box = event.target.id; 
 	var ind = box.substring(3) - 1;
+
+	if (gameEnded == true){
+		return;
+	}
 
 	if( gameBoard[ind] == '' ) {
 
@@ -37,6 +41,7 @@ function fillArray(player) {
 	gameBoard[ind] = fillArray.length;
 	// this is populating the arrays with "X" or "O" to tell who is winning
 	console.log(gameBoard[ind] = player)
+	console.log(gameBoard)
 }
 
 // gameBoard = [0,1,2,3,4,5,6,7,8]
@@ -55,8 +60,13 @@ function winCondition(){
 	for (var i = 0; i < wins.length; i++){
 		if ((gameBoard[wins[i][0]] != "") && (gameBoard[wins[i][0]] == gameBoard[wins[i][1]]) && (gameBoard[wins[i][1]] == gameBoard[wins[i][2]]))
 		{
-			alert(gameBoard[wins[i][0]] + " win! by " + wins[i][3]);
-			gameEnded = true;	
+			document.getElementById("winMsg").value=(gameBoard[wins[i][0]] + ' win! by ' + wins[i][3]);
+			document.getElementById("winMsg").style.display="block";
+			// alert(gameBoard[wins[i][0]] + " win! by " + wins[i][3]);
+			// gameEnded function doesnt work
+			gameEnded = true;
+			console.log(gameEnded);
+			
 		} 
 	}
 }
@@ -74,28 +84,28 @@ function tieCondition(){
 
 		if (gameEnded)
 		{
-			alert("it's a tie!");
+			document.getElementById("winMsg").value=("It's a tie!");
+			document.getElementById("winMsg").style.display="block";
+			// alert("it's a tie!");
 			gameEnded = true;
 		}
 }		
 	
 
-
-function buttonClick(){
-	alert( "my button was clicked!");
-	document.getElementById("btn")
-	
-	// clear gameBoard() and reset fillArray() when the buttonClick is click
-
-	// 	if gameBoard Array is not empty 
-			// btn value ("reset game")
-			// clear array
-			// gameEnded = false
-	// 	else 
-	// 		// btn value ("reset game")
-			// clear array
-			// gameEnded = false
+function hidePopup() {
+	document.getElementById("startBtn").style.display="none";
+	document.getElementById("gameBoard").style.display="block";
+	document.getElementById("resetBtn").style.display="block";
 }
+
+
+function resetClick(){
+	event.target.innerHTML = '';
+	gameBoard = ['','','','','','','','',''];
+	console.log(gameBoard);
+	// alert( "my button was clicked!");
+}
+
 
 function pageLoaded(){
 	var box = document.getElementsByClassName("box");

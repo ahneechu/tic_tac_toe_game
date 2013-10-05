@@ -23,13 +23,14 @@
 
     <body onload="navCells();">
 
-       </div>
-
-        <div class="container">
+        <div id="wrapper">
             <h1>Tic Tac Toe</h1>
 
-           <div id="gameBoard" class="clearfix">
-          <!--  <div class="win_alert">YOU WIN!</div> -->
+            <input type = "button" id="startBtn" class="btn" value="Start Game!" onClick="hidePopup()" />
+            <input type = "button" id="winMsg" class="btn" value="Play again?" onClick="resetClick()" />
+
+            <div id="gameBoard" class="clearfix" onClick="hidePopup()">
+        
                 <div id="box1" class="box top_row col1" onClick="playGame()"></div>
                 <div id="box2" class="box top_row col2" onClick="playGame()"></div>
                 <div id="box3" class="box top_row col3" onClick="playGame()"></div>
@@ -44,9 +45,10 @@
                 <div id="box8" class="box bottom_row col2" onClick="playGame()"></div>
                 <div id="box9" class="box bottom_row col3" onClick="playGame()"></div>
                 <div class="clearfix"></div>
+
             </div>
             
-            <input type="button" id="btn" value="Play Now!" onClick="buttonClick()">
+            <input type="button" id="resetBtn" value="Reset Game!" onClick="hidePopup(); resetClick()">
 
         </div>
        
