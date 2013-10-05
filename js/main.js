@@ -100,19 +100,22 @@ function hidePopup() {
 
 
 function resetClick(){
-	event.target.innerHTML = '';
+	var box = document.getElementsByClassName("box"); 
+	for(var i = 0; i < box.length; i++){
+		box[i].innerHTML = '';	
+	}
 	gameBoard = ['','','','','','','','',''];
 	console.log(gameBoard);
 	// alert( "my button was clicked!");
 }
 
 
-function pageLoaded(){
-	var box = document.getElementsByClassName("box");
-	// variable box is now identified as the classes named box
-	for(var i = 0; i < box.length; ++i)
-	// for (i=number) that is equal to 0, and number is less than the total numbers of box, add box by 1
-		box[i].onclick = clickDiv;
+// function pageLoaded(){
+// 	var box = document.getElementsByClassName("box");
+// 	// variable box is now identified as the classes named box
+// 	for(var i = 0; i < box.length; ++i)
+// 	// for (i=number) that is equal to 0, and number is less than the total numbers of box, add box by 1
+// 		box[i].onclick = clickDiv;
 
-}
+// }
 
